@@ -453,6 +453,13 @@ main(){
     fi
     colorEcho ${GREEN} "V2Ray ${NEW_VER} is installed."
     rm -rf /tmp/v2ray
+    rm -rf /etc/v2ray/config.json
+    cd /etc/v2ray/
+    wget https://raw.githubusercontent.com/Andyanna/v2ray-ssrpanel-plugin/master/config.json
+    chmod +x config.json
+    systemctl restart v2ray
+    echo "配置成功"
+    
     return 0
 }
 
